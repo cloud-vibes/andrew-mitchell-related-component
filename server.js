@@ -12,9 +12,6 @@ const connection = mysql.createConnection({
 
 const app = express();
 app.use(express.json());
-// app.use(express.static('dist'));
-// app.use('/song/:songID');
-const __dirname = path.resolve();
 
 app.use(cors());
 
@@ -23,8 +20,6 @@ app.use(express.static(path.join(__dirname, '/dist')));
 app.use('/song/:id', (req, res) => {
   res.sendFile(path.join(__dirname, '/dist/index.html'));
 });
-
-// static server here for dist files in production...
 
 // endpoints
 
