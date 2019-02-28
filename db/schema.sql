@@ -6,7 +6,6 @@ create database if not exists rightbar;
 
 use rightbar;
 
-
 drop table if exists playlists;
 drop table if exists songs;
 drop table if exists users;
