@@ -16,7 +16,7 @@
     "start": "node --experimental-modules server/index.mjs",
     "server": "nodemon --experimental-modules server/index.mjs",
     "createDB": "mysql -u root  < db/schema.sql",
-    "seedDB": "node --experimental-modules db/seed.mjs",
+    "seed": "node seeding/seed.js",
     "elastic": "npm run-script build && npm run-script server"
   },
   "dependencies": {
