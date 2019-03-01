@@ -10,7 +10,7 @@ module.exports = filePath => new Promise(async (resolve, reject) => {
       genre: 'Song Genre',
       length: `${3}:${20}`,
     };
-    for (let i = 0; i < 1; i += 1) {
+    for (let i = 0; i < 10000; i += 1) {
       let batch = [];
       if (i === 0) {
         batch.push(`${Object.keys(song).join(',')}\n`);
