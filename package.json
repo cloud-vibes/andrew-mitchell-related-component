@@ -1,11 +1,11 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
+  "name": "related-comp",
+  "version": "1.0.0",
+  "description": "A react app",
+  "author": "Andrew Mitchell",
+  "license": "none",
   "engines": {
-    "node": ">=6.13.0"
+    "node": ">=11.10.1"
   },
   "scripts": {
     "postinstall": "npx webpack -mode=development",
