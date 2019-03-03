@@ -9,7 +9,7 @@ module.exports = (filePath, OoM) => new Promise(async (resolve, reject) => {
       name: '',
       image: 'https://example.com/',
     };
-    for (let i = 0; i < OoM / 100; i += 1) {
+    for (let i = 0; i < OoM / 10; i += 1) {
       let batch = [];
       if (i === 0) {
         batch.push(`${Object.keys(album).join(',')}`);
