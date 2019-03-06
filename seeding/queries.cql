@@ -1,4 +1,4 @@
-// /Users/Andrew/Library/Application\ Support/Neo4j\ Desktop/Application/neo4jDatabases/database-a4f76be7-1d28-402c-8ef5-1d11abc57d8a/installation-3.5.2/bin/cypher-shell -u neo4j -p ladybug12  < /Users/Andrew/webDev/hackReactor/SDC/andrew-mitchell-related-component/seeding/queries.cql
+// /Users/Andrew/Library/Application\ Support/Neo4j\ Desktop/Application/neo4jDatabases/database-40c4266f-26d8-4dbd-b363-77443e01cb45/installation-3.5.3/bin/cypher-shell -u neo4j -p ladybug12  < /Users/Andrew/webDev/hackReactor/SDC/andrew-mitchell-related-component/seeding/queries.cql
 
 CREATE CONSTRAINT ON (song:Song) ASSERT song.id IS UNIQUE;
 CREATE CONSTRAINT ON (user:User) ASSERT user.id IS UNIQUE;
