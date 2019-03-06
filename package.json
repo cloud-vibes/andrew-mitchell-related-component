@@ -1,11 +1,11 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
-  "author": "",
-  "license": "",
+  "name": "related-comp",
+  "version": "1.0.0",
+  "description": "A react app",
+  "author": "Andrew Mitchell",
+  "license": "none",
   "engines": {
-    "node": ">=6.13.0"
+    "node": ">=11.10.1"
   },
   "scripts": {
     "postinstall": "npx webpack -mode=development",
@@ -16,7 +16,7 @@
     "start": "node --experimental-modules server/index.mjs",
     "server": "nodemon --experimental-modules server/index.mjs",
     "createDB": "mysql -u root  < db/schema.sql",
-    "seedDB": "node --experimental-modules db/seed.mjs",
+    "seed": "node seeding/seed.js",
     "elastic": "npm run-script build && npm run-script server"
   },
   "dependencies": {
@@ -27,6 +27,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.7.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "acorn": "^6.1.0",
+    "apollo-server-express": "^2.4.8",
     "aws-sdk": "^2.401.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-styled-components": "^1.10.0",
