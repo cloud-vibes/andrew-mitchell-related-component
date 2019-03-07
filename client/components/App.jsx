@@ -24,11 +24,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    const path = document.location.pathname.split('/');
     client
       .query({
         query: gql`
           {
-            Song(id: 12325) {
+            Song(id: ${path[path.length - 1]}) {
               relatedSongs {
                 name
                 plays
