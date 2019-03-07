@@ -16,10 +16,10 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      songs: [],
-      users: [],
+      relatedSongs: [],
+      usersWhoLiked: [],
       playlists: [],
-      currentlySelected: { num_likes: undefined },
+      likes: [],
     };
   }
 
@@ -32,21 +32,40 @@ class App extends React.Component {
               relatedSongs {
                 name
                 plays
+                image
+                artist {
+                  name
+                  image
+                }
               }
+              playlists {
+                name
+                image
+              }
+            }
+            User(first: 10) {
+              image
             }
           }
         `,
       })
-      .then(result => console.log(result.data));
+      .then(({ data }) => {
+        this.setState({
+          relatedSongs: data.Song[0].relatedSongs,
+          playlists: data.Song[0].playlists,
+          likes: 10,
+          usersWhoLiked: data.User,
+        });
+      });
   }
 
   render() {
-    const { songs } = this.state;
+    const { relatedSongs, playlists, likes, usersWhoLiked } = this.state;
     return (
       <div className="app">
-        <TrackList select={this.selectSong} tracks={songs} />
-        <PlaylistList playlists={this.state.playlists.slice(0, 3)} />
-        <BubbleList likes={this.state.currentlySelected.num_likes} users={this.state.users.slice(0, 9)} />
+        <TrackList select={this.selectSong} tracks={relatedSongs} />
+        <PlaylistList playlists={playlists} />
+        <BubbleList likes={likes} users={usersWhoLiked} />
       </div>
     );
   }
