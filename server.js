@@ -6,8 +6,9 @@ const { makeAugmentedSchema } = require('neo4j-graphql-js');
 const neo4j = require('neo4j-driver').v1;
 
 const app = express();
+app.use(express.json());
+app.use(cors());
 
-const songRoutes = require('./app/controllers/songs');
 const typeDefs = require('./app/models/graphql');
 const { neo4jPass, neo4jUser } = require('./config');
 
@@ -22,18 +23,9 @@ const server = new ApolloServer({ schema, context: { driver } });
 
 server.applyMiddleware({ app });
 
-app.listen({ port: 3000 }, () =>
-  console.log(`🚀 Server ready at http://localhost:3000${server.graphqlPath}`)
-);
+app.use(express.static(path.join(__dirname, '/dist')));
 
-// app.use(express.json());
-// app.use(cors());
-
-// app.use(express.static(path.join(__dirname, '/dist')));
-
-// app.use('/api/songs', songRoutes);
-
-// const PORT = process.env.PORT || 8081;
-// app.listen(PORT, () => {
-//   console.log(`listening on port ${PORT}`);
-// });
+const PORT = process.env.PORT || 8081;
+app.listen(PORT, () => {
+  console.log(`listening on port http://localhost:${PORT}`);
+});
