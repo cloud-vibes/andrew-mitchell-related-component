@@ -5,7 +5,7 @@ const seedPlaylists = require('./helpers/seedPlaylists');
 const seedAlbums = require('./helpers/seedAlbums');
 const seedSongsToSongs = require('./helpers/seedSongsToSongs');
 
-const orderOfMagnitude = 10;
+const orderOfMagnitude = 10000;
 
 (async () => {
   console.log(`Generated ${orderOfMagnitude * 1000} Primary Records`);

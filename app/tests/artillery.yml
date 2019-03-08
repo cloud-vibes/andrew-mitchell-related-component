@@ -1,0 +1,12 @@
+config:
+  target: 'http://localhost:8081'
+  processor: "./generateGraphQuery.js"
+  phases:
+    - duration: 10
+      arrivalRate: 300
+scenarios:
+  - flow:
+    - function: "generateRandomPayload"
+    - post:
+        url: "/graphql"
+        json: "{{graphJSON}}"
