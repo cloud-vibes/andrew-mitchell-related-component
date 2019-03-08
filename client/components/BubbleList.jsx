@@ -18,7 +18,7 @@ export default class BubbleList extends React.Component {
         <ListSeparator />
         <div className={"bubbles"}>
           {this.props.users.map((user, index) =>
-            <ProfileImage data-tip data-for={`${user.username}`} key={user.username} src={`url("${user.pic}")`} style={{
+            <ProfileImage data-tip data-for={`${user.name}`} key={user.name} src={`url("${user.image}")`} style={{
               height: "40px",
               width: "40px",
               borderStyle: "solid",
@@ -36,8 +36,8 @@ export default class BubbleList extends React.Component {
               border={true}
               effect={'solid'}
 
-              key={`${user.username}`}
-              id={`${user.username}`}
+              key={`${user.name}`}
+              id={`${user.name}`}
               style={{ color: "#ff6e00 !important" }} >
               <UserProfile user={user}></UserProfile>
             </ReactTooltip>)}

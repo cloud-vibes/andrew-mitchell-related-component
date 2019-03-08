@@ -1,7 +1,7 @@
 
 module.exports = {
   context: __dirname,
-  entry: './client/index.js',
+  entry: './client/index.jsx',
   module: {
     rules: [
       {

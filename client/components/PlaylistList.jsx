@@ -13,6 +13,7 @@ export default class PlaylistList extends React.Component {
   }
 
   render() {
+    console.log('playlists', this.props.playlists)
     return (
       <div style={{ width: "55%" }}>
         <Grey><PlaylistListHeader /></Grey>

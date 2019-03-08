@@ -8,8 +8,8 @@ export default class UserProfile extends React.Component {
 
   render() {
     return (<div style={{ height: "150px", width: "75px" }}>
-      <div ><ProfileImage src={`url("${this.props.user.pic}")`}></ProfileImage></div>
-      <div>{this.props.user.username}</div>
+      <div ><ProfileImage src={`url("${this.props.user.image}")`}></ProfileImage></div>
+      <div>{this.props.user.name}</div>
       <button>Follow</button>
     </div>);
   }
