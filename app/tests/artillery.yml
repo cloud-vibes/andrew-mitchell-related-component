@@ -2,8 +2,88 @@ config:
   target: 'http://localhost:8081'
   processor: "./generateGraphQuery.js"
   phases:
-    - duration: 10
-      arrivalRate: 300
+    - duration: 20
+      arrivalRate: 20
+    - duration: 5
+      arrivalRate: 50
+    - duration: 5
+      arrivalRate: 55
+    - duration: 5
+      arrivalRate: 60
+    - duration: 5
+      arrivalRate: 65
+    - duration: 5
+      arrivalRate: 70
+    - duration: 5
+      arrivalRate: 75
+    - duration: 5
+      arrivalRate: 80
+    - duration: 5
+      arrivalRate: 85
+    - duration: 5
+      arrivalRate: 90
+    - duration: 5
+      arrivalRate: 95
+    - duration: 5
+      arrivalRate: 100
+    - duration: 5
+      arrivalRate: 105
+    - duration: 5
+      arrivalRate: 110
+    - duration: 5
+      arrivalRate: 115
+    - duration: 5
+      arrivalRate: 120
+    - duration: 5
+      arrivalRate: 125
+    - duration: 5
+      arrivalRate: 130
+    - duration: 5
+      arrivalRate: 135
+    - duration: 5
+      arrivalRate: 140
+    - duration: 5
+      arrivalRate: 145
+    - duration: 5
+      arrivalRate: 150
+    - duration: 5
+      arrivalRate: 155
+    - duration: 5
+      arrivalRate: 160
+    - duration: 5
+      arrivalRate: 165
+    - duration: 5
+      arrivalRate: 170
+    - duration: 5
+      arrivalRate: 175
+    - duration: 5
+      arrivalRate: 180
+    - duration: 5
+      arrivalRate: 195
+    - duration: 5
+      arrivalRate: 200
+    - duration: 5
+      arrivalRate: 205
+    - duration: 5
+      arrivalRate: 210
+    - duration: 5
+      arrivalRate: 215
+    - duration: 5
+      arrivalRate: 220
+    - duration: 5
+      arrivalRate: 225
+    - duration: 5
+      arrivalRate: 230
+    - duration: 5
+      arrivalRate: 235
+    - duration: 5
+      arrivalRate: 240
+    - duration: 5
+      arrivalRate: 245
+    - duration: 5
+      arrivalRate: 250
+    - duration: 5
+      arrivalRate: 255
 scenarios:
   - flow:
     - function: "generateRandomPayload"
