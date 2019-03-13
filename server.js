@@ -11,7 +11,7 @@ const app = express();
 // app.use(morgan('dev'));
 
 const typeDefs = require('./app/models/graphql');
-const { neo4jPass, neo4jUser } = require('./config');
+const { neo4jPass, neo4jUser, neo4jURL } = require('./config');
 const csvRoutes = require('./app/controllers/csv');
 
 const schema = makeAugmentedSchema({
@@ -22,11 +22,15 @@ const schema = makeAugmentedSchema({
 });
 
 const driver = neo4j.driver(
-  'bolt://localhost:7687',
+  neo4jURL,
   neo4j.auth.basic(neo4jUser, neo4jPass),
 );
 
 app.use(express.static(path.join(__dirname, '/dist')));
+
+const server = new ApolloServer({ schema, context: { driver } });
+
+server.applyMiddleware({ app });
 
 app.get('/api/sidebar/bundle', (req, res) => {
   res.sendFile(path.join(__dirname, '/dist/bundle.js'));
@@ -37,10 +41,6 @@ app.use('/csv', csvRoutes);
 app.get('*', (req, res) => {
   res.sendFile(`${__dirname}/dist/index.html`);
 });
-
-const server = new ApolloServer({ schema, context: { driver } });
-
-server.applyMiddleware({ app });
 
 const PORT = process.env.PORT || 8081;
 app.listen(PORT, () => {

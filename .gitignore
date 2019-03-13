@@ -1,4 +1,4 @@
-seeding/csv
+seeding/csv/*.csv
 config.js
 
 ## MAC files ##

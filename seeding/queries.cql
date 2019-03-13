@@ -7,7 +7,7 @@ CREATE CONSTRAINT ON (album:Album) ASSERT album.id IS UNIQUE;
 CREATE INDEX ON :Song(name);
 // users
 USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS FROM "http://127.0.0.1:5500/seeding/csv/users.csv" AS csvLine
+LOAD CSV WITH HEADERS FROM "http://ec2-3-91-101-162.compute-1.amazonaws.com/csv/users" AS csvLine
 CREATE (user:User {
   id: toInteger(csvLine.id),
   name: csvLine.name,
@@ -15,7 +15,7 @@ CREATE (user:User {
 });
 // playlists
 USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS FROM "http://127.0.0.1:5500/seeding/csv/playlists.csv" AS csvLine
+LOAD CSV WITH HEADERS FROM "http://ec2-3-91-101-162.compute-1.amazonaws.com/csv/playlists" AS csvLine
 CREATE (playlist:Playlist {
   id: toInteger(csvLine.id),
   name: csvLine.name,
@@ -23,7 +23,7 @@ CREATE (playlist:Playlist {
 });
 // albums
 USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS FROM "http://127.0.0.1:5500/seeding/csv/albums.csv" AS csvLine
+LOAD CSV WITH HEADERS FROM "http://ec2-3-91-101-162.compute-1.amazonaws.com/csv/albums" AS csvLine
 CREATE (album:Album {
   id: toInteger(csvLine.id),
   name: csvLine.name,
@@ -31,7 +31,7 @@ CREATE (album:Album {
 });
 // songs
 USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS FROM "http://127.0.0.1:5500/seeding/csv/songs.csv" AS csvLine
+LOAD CSV WITH HEADERS FROM "http://ec2-3-91-101-162.compute-1.amazonaws.com/csv/songs" AS csvLine
 MERGE (user:User {id: toInteger(csvLine.userId)})
 MERGE (playlist:Playlist {id: toInteger(csvLine.playlistId)})
 MERGE (album:Album {id: toInteger(csvLine.albumId)})
@@ -53,6 +53,6 @@ CREATE (song)-[:IS_IN]->(album);
 
 // Add song relations
 USING PERIODIC COMMIT
-LOAD CSV WITH HEADERS FROM "http://127.0.0.1:5500/seeding/csv/songsToSongs.csv" AS csvLine
+LOAD CSV WITH HEADERS FROM "http://ec2-3-91-101-162.compute-1.amazonaws.com/csv/songToSongs" AS csvLine
 MATCH (song:Song {id: toInteger(csvLine.songId)}),(songB:Song {id: toInteger(csvLine.relatedSongId)})
 CREATE (song)-[:RELATED_TO]->(songB);
