@@ -12,6 +12,7 @@ const app = express();
 
 const typeDefs = require('./app/models/graphql');
 const { neo4jPass, neo4jUser } = require('./config');
+const csvRoutes = require('./app/controllers/csv');
 
 const schema = makeAugmentedSchema({
   typeDefs,
@@ -30,6 +31,8 @@ app.use(express.static(path.join(__dirname, '/dist')));
 app.get('/api/sidebar/bundle', (req, res) => {
   res.sendFile(path.join(__dirname, '/dist/bundle.js'));
 });
+
+app.use('/csv', csvRoutes);
 
 app.get('*', (req, res) => {
   res.sendFile(`${__dirname}/dist/index.html`);
