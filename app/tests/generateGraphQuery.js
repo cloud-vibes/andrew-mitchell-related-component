@@ -1,8 +1,7 @@
 /* eslint-disable no-param-reassign */
-const faker = require('faker');
 
 module.exports.generateRandomPayload = (userContext, events, done) => {
-  const randId = faker.random.number(215) ** 3;
+  const randId = Math.floor(Math.random() * 215) * Math.floor(Math.random() * 215) * Math.floor(Math.random() * 215);
 
   const graphqlQuery = {
     query: `{
